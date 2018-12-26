@@ -40,10 +40,11 @@ app.post("/login",(req,res)=>{
 
 function verifyToken (req,res,next){
     //get auth header value
-    const barerHeader = req.headers['authorization']
+    const BearerHeader = req.headers['authorization']
     //check if barer is undefined
-    if(typeof barerHeader !== 'undefined'){
-         const bearerToken= barerHeader.split(' ')[1];
+    //token format bearer <bearerToken>
+    if(typeof BearerHeader !== 'undefined'){
+         const bearerToken= BearerHeader.split(' ')[1];
         req.token = bearerToken;        
         next();  
     }else{
