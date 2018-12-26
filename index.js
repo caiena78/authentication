@@ -25,6 +25,7 @@ app.post("/login",(req,res)=>{
       id:1,
       username:'Chad',      
     }
+    // set timeout of token to 1 hour
     jwt.sign({
         exp: Math.floor(Date.now() / 1000) + (60 * 60),
         data: user
